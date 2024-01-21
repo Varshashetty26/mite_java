@@ -1,0 +1,13 @@
+import java.util.Scanner;   //import package for user input
+public class Main {
+    static boolean Even(int number) {   //function to check if the number is even
+        return number % 2 == 0;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number1 = sc.nextInt(); // first number
+        boolean x = Even(number1);
+        System.out.println(x);
+    }
+}
