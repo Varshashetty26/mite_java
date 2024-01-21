@@ -1,0 +1,14 @@
+import java.util.Scanner;//package for user input
+public class Main {
+    static boolean in1020(int number1, int number2) {   //function -check numbers is in b/w 10-20 range
+        return (number1 >= 10 && number1 <= 20) || (number2 >= 10 && number2 <= 20);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number1 = sc.nextInt();//first number
+        int number2 = sc.nextInt();//2nd number
+        boolean result = in1020(number1, number2);
+        System.out.println(result);
+    }
+}
