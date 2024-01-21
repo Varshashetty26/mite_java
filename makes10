@@ -1,0 +1,14 @@
+import java.util.Scanner;   //import package for user input
+public class Main {
+    static boolean makes10(int number1,int number2) {   //function to check numbers is 10 or sum is 10 
+        return (number1==10 || number2==10 || number1+number2==10);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number1 = sc.nextInt(); // first number
+         int number2 = sc.nextInt(); // 2nd number
+        boolean x = makes10(number1,number2);
+        System.out.println(x);
+    }
+}
