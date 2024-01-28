@@ -1,0 +1,21 @@
+import java.util.Scanner;       //package-user input
+class Main{
+    static void neg(int n){     //function-negative number
+        for(int i=n;i<=0;i++)
+            System.out.print(i+" ");
+    }
+    static void pos(int n){     //function-positive number
+        for(int i=n;i>0;i--)
+            System.out.print(i-1+" ");
+    }
+    public static void main(String args[] ){
+        Scanner input=new Scanner(System.in);//user input
+        int n=input.nextInt();  //input-number
+        if(n==0)                //if-number=0
+            System.out.print("already Zero");
+        else if(n>0)            // if-number>0-goto-pos()
+            pos(n);             
+        else                    //if-number<0-goto-neg()
+            neg(n);
+    }
+}
