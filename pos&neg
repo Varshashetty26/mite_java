@@ -11,11 +11,13 @@ class Main{
     public static void main(String args[] ){
         Scanner input=new Scanner(System.in);//user input
         int n=input.nextInt();  //input-number
-        if(n==0)                //if-number=0
-            System.out.print("already Zero");
-        else if(n>0)            // if-number>0-goto-pos()
-            pos(n);             
-        else                    //if-number<0-goto-neg()
-            neg(n);
+        while(n>=-1000 && n<=1000){
+            if(n==0)                //if-number=0
+                System.out.print("already Zero");
+            else if(n>0)            // if-number>0-goto-pos()
+                pos(n);             
+            else                    //if-number<0-goto-neg()
+                neg(n);
+        }
     }
 }
