@@ -1,0 +1,26 @@
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the number of queries");
+        int q = scanner.nextInt(); // Number of queries
+        for (int i = 0; i < q; i++) {//enter a,b and n
+            System.out.println("enter a:");
+            int a = scanner.nextInt();
+            System.out.println("enter b:");
+            int b = scanner.nextInt();
+            System.out.println("enter n:");
+            int n = scanner.nextInt();
+            printSeries(a, b, n);  // Generate and print the series for the current query
+            
+        }
+    }
+    private static void printSeries(int a, int b, int n) {// Function to print the series for a given query
+        int result = a;             //let result=a
+        for (int j = 0; j < n; j++) {
+            result += Math.pow(2, j) * b;//add the power to result
+            System.out.print(result + " ");//print result
+        } 
+        System.out.println();//next line
+    }
+}
