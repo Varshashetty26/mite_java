@@ -1,0 +1,25 @@
+import java.util.*;
+public class Main
+{
+    static int greenTicket(int a, int b, int c) {
+        if (a == b && b == c) {
+            return 20; 
+        } else if (a == b || b == c || a == c) {
+            return 10; 
+        } else {
+            return 0; 
+        }
+    }
+	public static void main(String[] args)
+	{
+	    int a,b,c;
+	    Scanner s= new Scanner(System.in);
+		System.out.println("Enter 3 integer values:");
+		a=s.nextInt();
+		b=s.nextInt();
+		c=s.nextInt();
+		System.out.println("a="+a+"\tb="+b+"\tc="+c);
+		System.out.println(greenTicket(a,b,c));
+		
+	}
+}
