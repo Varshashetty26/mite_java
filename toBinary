@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        Scanner scanner = new Scanner(System.in);
+        int num= scanner.nextInt();
+        System.out.println(toBinary(num));
+    }
+
+    public static String toBinary(int num) 
+    {
+        if (num <= 0)
+            return "Invalid";
+        StringBuilder binary = new StringBuilder();
+        while (num > 0) 
+        {
+            binary.insert(0, num % 2);
+            num /= 2;
+        }
+        return binary.toString();
+    }
+}
