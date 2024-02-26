@@ -1,0 +1,27 @@
+import java.util.*;
+public class Main
+{
+    static void luckySum(int x, int y,int z)
+	{
+        	if(x==13)
+		    System.out.println("Sum:0");
+		else if(y==13)
+		    System.out.println("Sum:"+x);
+		else if(z==13)
+		    System.out.println("Sum:"+(x+y));
+	
+		else
+		    System.out.println("Sum:"+(x+y+z));
+	}
+	public static void main(String[] args)
+	{
+	    int a,b,c;
+	    Scanner s= new Scanner(System.in);
+		System.out.println("Enter 3 integer values:");
+		a=s.nextInt();
+		b=s.nextInt();
+		c=s.nextInt();
+		System.out.println("a="+a+"\tb="+b+"\tc="+c);
+		luckySum(a,b,c);
+	}
+}
