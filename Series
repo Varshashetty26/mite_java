@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class Main 
+{
+    public static void main(String[] args) 
+{
+        Scanner s = new Scanner(System.in);
+        int a = s.nextInt();
+        int b = s.nextInt();
+        int n = s.nextInt();
+        Series(a, b, n);
+    }
+    public static void Series(int a, int b, int n) {
+        int term;
+        for (int i = 1; i <= n; i++) 
+        { 
+            term = a;
+            for (int j = 0; j < i; j++) {
+                term += Math.pow(2, j) * b;
+            }
+            System.out.print(term + " ");
+        }
+    }
+}
