@@ -1,0 +1,15 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();//user input
+        int count = 0;//let no.of spl char=0
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);//check for the each char in the string
+            if (!Character.isLetterOrDigit(c) && !Character.isWhitespace(c)) {//check  if it non alpanumeric and the white space
+                count++;//increment count 
+            }
+        }
+        System.out.println("Number of special characters: " + count);//print the no.of spl char
+    }
+}
