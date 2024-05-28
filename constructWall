@@ -1,0 +1,29 @@
+import java.util.Scanner;//for user input
+public class Main {
+
+  public static boolean wall(int smallBrick, int largeBrick, int wallLength) {//check-wall formation
+    int totalBrickLength = smallBricks + largeBricks * 5;//find total length of wall
+    if (totalBrickLength < wallLength) {//if totalBrickLength is less than wallLength
+      return false;//no-wall formation
+    }
+
+    // Use large bricks first to maximize their usage.
+    int usedLargeBricks = Math.min(wallLength / 5, largeBricks);
+    int remainingLength = wallLength - usedLargeBricks * 5;
+
+    return remainingLength <= smallBricks;
+  }
+
+  public static void main(String[] args) {//main function
+      Scanner sc=new Scanner(System.in);
+      System.out.println("Enter the no. of small brick:");
+      int small=sc.nextInt();//no.of small brick
+      System.out.println("Enter the no. of large bricks:");
+      int large=sc.nextInt();//no.of large brick
+      System.out.println("enter the wall length:");
+      int wall_length=sc.nextInt();//length of the wall
+      boolean wall=wall(small,large,wall_length);
+      System.out.println(wall);//return true->wall formed or false->no wall
+   
+  }
+}
