@@ -1,0 +1,50 @@
+import java.util.Scanner;//for user input
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter the number of strings: ");//no. of strings 
+        int n = sc.nextInt();
+         sc.nextLine(); // Consume the newline character
+        
+        String[] str = new String[n];
+        System.out.println("Enter " + n + " strings: ");
+        for (int i = 0; i < n; i++) {
+            str[i] = sc.nextLine();//enter the strings
+        }
+        
+        String maxVowels = string_MaxVowel(str);//to find max vowel
+        
+        System.out.println("The string with the maximum number of vowels is: " + maxVowels);//print the string -max_vowel
+    }
+
+    public static String string_MaxVowel(String[] str) {//to check which string has -max vowel
+        int maxVowelCount = 0;
+        String maxVowelString = "";
+        
+        for (String string : str) {
+            int currentVowelCount = countVowels(string);
+            if (currentVowelCount > maxVowelCount) {
+                maxVowelCount = currentVowelCount;
+                maxVowelString = string;
+            }
+        }
+        
+        return maxVowelString;//return the string with maximum vowel
+    }
+
+    public static int countVowels(String string) {//to count the no. of vowel
+        int count = 0;
+        string = string.toLowerCase(); // Convert the string to lowercase to handle both uppercase and lowercase vowels
+        
+        for (int i = 0; i < string.length(); i++) {
+            char ch = string.charAt(i);//to check each character in the string
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {//check if the character in the string is vowe or not
+                count++;//if vowel-increment count
+            }
+        }
+        
+        return count;
+    }
+}
