@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int minPrice=35,kilometer=10,minute=1,kg=5;
+		float TotalPrice=0;
+		float distance=sc.nextFloat();
+		float time=sc.nextFloat();
+		float Luggage=sc.nextFloat();
+		if(distance<=1.6)
+		    distance=0;
+		TotalPrice=minPrice+(distance*kilometer)+(minute*time)+(kg*(Luggage/10));
+		System.out.println(TotalPrice);
+	}
+}
