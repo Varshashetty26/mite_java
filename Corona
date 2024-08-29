@@ -1,0 +1,23 @@
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+        int size=sc.nextInt();
+        int a[] =new int[size];
+        int spike=sc.nextInt();
+        int result[]=new int[size];
+        if(size>0){
+            if(spike>0)
+                for(int i=0;i<size;i++)
+                    result[i]=a[i]>>spike;
+            else if(spike==0)
+                for(int i=0;i<size;i++)
+                    result[i]=a[i];
+                
+        }
+        for(int i=0;i<size;i++)
+            System.out.println(result[i]);
+	}
+}
