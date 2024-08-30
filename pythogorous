@@ -1,0 +1,19 @@
+//check pythogorous triangle or not
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int a[]=new int[3];
+        for(int i=0;i<3;i++){
+            a[i]=scanner.nextInt();
+        }
+        boolean result=pytho(a);
+        System.out.println(result);
+	}
+	static boolean pytho(int[] a){
+	    if(a[0]*a[0]+a[1]*a[1]==a[2]*a[2])
+	        return true;
+	   return false;
+	}
+}
