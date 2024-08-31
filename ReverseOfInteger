@@ -1,0 +1,16 @@
+// reverse an integer 
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int number=sc.nextInt();//user input
+		int reverse=0,mod=0;        //initialise reverse and mod=0
+		while(number>0){    //check if number is greater than 0
+		   mod=number%10;   //find the unit digits
+		   reverse=reverse*10+mod; //find reverse
+		   number/=10;//remove the unit digit number
+		}
+		System.out.println(reverse);//print thhe reverse number
+	}
+}
