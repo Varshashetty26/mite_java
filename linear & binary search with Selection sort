@@ -1,5 +1,5 @@
 public class Main {
-
+//main function
     public static void main(String[] args) {
         // List of book titles
         String[] books = {
@@ -42,7 +42,7 @@ public class Main {
             System.out.println("Book not found in sorted list.");
     }
 
-    // Linear search implementation
+    // Linear search function
     public static int linearSearch(String[] array, String key) {
         for (int i = 0; i < array.length; i++) 
             if (array[i].equalsIgnoreCase(key)) 
@@ -50,7 +50,7 @@ public class Main {
         return -1;
     }
 
-    // Binary search implementation
+    // Binary search function
     public static int binarySearch(String[] array, String key) {
         int left = 0;
         int right = array.length - 1;
