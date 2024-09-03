@@ -1,0 +1,84 @@
+public class Main {
+
+    public static void main(String[] args) {
+        // List of book titles
+        String[] books = {
+            "Tom Lake", "Holly", "The Exchange", "House of Flame and Shadow",
+            "Funny Story", "Poverty, by America", "Elon Musk", "Pageboy", 
+            "Prequel", "The Woman in Me", "Gone Girl", "The Girl with the Dragon Tattoo", 
+            "The Silence of the Lambs", "Rebecca", "Shutter Island", "The Da Vinci Code", 
+            "Before I Go to Sleep", "The Woman in White", "The Talented Mr. Ripley", 
+            "Big Little Lies", "The Diary of a Young Girl", "Long Walk to Freedom", 
+            "The Story of My Experiments with Truth", "I Know Why the Caged Bird Sings", 
+            "The Autobiography of Malcolm X", "Bossy Pants", "Becoming", "Steve Jobs", 
+            "Born a Crime", "All Quiet on the Western Front", "War and Peace", 
+            "The Things They Carried", "Catch-22", "The Red Badge of Courage", 
+            "For Whom the Bell Tolls", "A Farewell to Arms", "The Naked and the Dead", 
+            "Slaughterhouse-Five", "The Book Thief"
+        };
+        String bookTitle = "Gone Girl";
+        
+        // Linear search
+        System.out.println("****************************LINEAR SEARCH**********************************");
+        int index = linearSearch(books, bookTitle);
+        if (index != -1) 
+            System.out.println(bookTitle + " is at index " + index);
+        else 
+            System.out.println("Book not found.");
+        
+        // Selection sort
+        System.out.println("***************************SELECTION SORT*********************************");
+        selectionSort(books);
+        System.out.println("Sorted book titles:");
+        for (int i = 0; i < books.length; i++) 
+            System.out.println(books[i]); 
+            
+        // Binary search on sorted list
+        System.out.println("****************************BINARY SEARCH*********************************");
+        index = binarySearch(books, bookTitle);
+        if (index != -1)
+            System.out.println(bookTitle + " is book no. " + index);
+        else 
+            System.out.println("Book not found in sorted list.");
+    }
+
+    // Linear search implementation
+    public static int linearSearch(String[] array, String key) {
+        for (int i = 0; i < array.length; i++) 
+            if (array[i].equalsIgnoreCase(key)) 
+                return i;
+        return -1;
+    }
+
+    // Binary search implementation
+    public static int binarySearch(String[] array, String key) {
+        int left = 0;
+        int right = array.length - 1;
+        while (left <= right) {
+            int middle = left + (right - left) / 2;
+            int result = key.compareToIgnoreCase(array[middle]);
+            if (result == 0) 
+                return middle;
+            if (result > 0) 
+                left = middle + 1;
+            else 
+                right = middle - 1;
+        }
+        return -1;
+    }
+    
+    // Function for Selection sort
+    public static void selectionSort(String[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j].compareToIgnoreCase(array[minIndex]) < 0) {
+                    minIndex = j;
+                }
+            }
+            String temp = array[minIndex];
+            array[minIndex] = array[i];
+            array[i] = temp;
+        }
+    }
+}
