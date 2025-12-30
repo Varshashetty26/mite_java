@@ -1,0 +1,33 @@
+package service;
+
+import model.Customer;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+public class CustomerService {
+    private static CustomerService customerService = null;
+    private Map<String, Customer> customers = new HashMap<>();
+    // to add a Customer
+    public void addCustomer(String email, String firstName, String lastName) {
+        Customer customer = new Customer(firstName, lastName, email);
+        customers.put(email, customer);
+    }
+    private CustomerService() {}
+    public static CustomerService getInstance() {
+        if (customerService == null) {
+            customerService = new CustomerService();
+        }
+        return customerService;
+    }
+    //to get customer using email
+
+    public Customer getCustomer(String customerEmail) {
+        return customers.get(customerEmail);
+    }
+    //to Get all customers
+    public Collection<Customer> getAllCustomers() {
+        return customers.values();
+    }
+}
