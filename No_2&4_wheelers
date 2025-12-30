@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int vehicles=sc.nextInt();
+	int wheels=sc.nextInt();
+	int TotalFourWheelers=0;
+	int TotalTwoWheelers=0;
+	if(vehicles>0 && wheels>0){
+	TotalFourWheelers=(wheels-2*vehicles)/2;
+	TotalTwoWheelers=vehicles-TotalFourWheelers;
+	}
+	System.out.println("TotalFourWheelers= "+TotalFourWheelers);
+	System.out.println("TotalTwoWheelers= "+TotalTwoWheelers);
+	}
+}

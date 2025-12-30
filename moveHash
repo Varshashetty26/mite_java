@@ -1,0 +1,19 @@
+//move all the hashes to the front of the string and rest to the back abd return the string
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.nextLine();//enter the string 
+		StringBuilder result = new StringBuilder();//for storing the result 
+		for(int i=0;i<str.length();i++){
+		    if(str.charAt(i)=='#')//check if the hash exist in the string
+		        result.append(str.charAt(i));//if yes,then append it to result (all the # will come front)
+		}
+		for(int i=0;i<str.length();i++){
+		    if(str.charAt(i)!='#')//characters other than hash
+		       result.append(str.charAt(i));//will be added after hash
+		}
+		    System.out.print(result);// print the result
+	}
+}

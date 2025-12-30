@@ -1,0 +1,47 @@
+import java.util.Scanner;
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        Scanner s=new Scanner(System.in);
+        int X=s.nextInt();
+        int Y=s.nextInt();
+        FibPrimeNumbers(X, Y);
+    }
+    static void FibPrimeNumbers(int X, int Y) 
+    {
+        for (int i=X;i<=Y;i++) {
+            if (isFibonacci(i) && isPrime(i)) 
+            {
+                System.out.println(i);
+            }
+        }
+    }
+    static boolean isFibonacci(int num) 
+    {
+        int a=0,b=1;
+        while (b<num) 
+        {
+            int temp=b;
+            b =a+b;
+            a=temp;
+        }
+        return b==num;
+    }
+    static boolean isPrime(int num) 
+    {
+        if (num<=1) 
+        {
+            return false;
+        }
+        for (int i=2;i<=num/2;i++) 
+        {
+            if (num%i==0) 
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}

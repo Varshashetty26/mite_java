@@ -1,0 +1,30 @@
+import java.util.Scanner;
+class Main {
+    static boolean isPrime(int num) {   //function to check is num-prime or not
+        if (num <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    static boolean arePrimes(int a, int b) { // fuction to check if both a & b is prime
+        return isPrime(a) && isPrime(b);
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        boolean arePrimes = arePrimes(a, b);// check -a & b-prime/not
+        if (arePrimes && isPrime(a + b)) {  // check if a,b & a+b-prime /not
+            System.out.println("The sum of a and b is a prime number.");
+        } else {
+            System.out.println("The sum of a and b is not a prime number.");
+        }
+    }
+}

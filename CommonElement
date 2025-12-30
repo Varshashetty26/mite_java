@@ -1,0 +1,62 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class CommonNumber{
+    static ArrayList<Integer> findCommonElements(int ar1[], int ar2[], int ar3[]) {
+        ArrayList<Integer> result = new ArrayList<>();
+        int n1 = ar1.length, n2 = ar2.length, n3 = ar3.length;
+
+        int i = 0, j = 0, k = 0;
+
+        while (i < n1 && j < n2 && k < n3) {
+            if (ar1[i] == ar2[j] && ar2[j] == ar3[k]) {
+                result.add(ar1[i]);
+                i++;
+                j++;
+                k++;
+            } else if (ar1[i] < ar2[j]) {
+                i++;
+            } else if (ar2[j] < ar3[k]) {
+                j++;
+            } else {
+                k++;
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the size of the first array: ");
+        int n1 = input.nextInt();
+        int ar1[] = new int[n1];
+        System.out.println("Enter the elements of the first array (in sorted order):");
+        for (int i = 0; i < n1; i++) {
+            ar1[i] = input.nextInt();
+        }
+
+        System.out.println("Enter the size of the second array: ");
+        int n2 = input.nextInt();
+        int ar2[] = new int[n2];
+        System.out.println("Enter the elements of the second array (in sorted order):");
+        for (int i = 0; i < n2; i++) {
+            ar2[i] = input.nextInt();
+        }
+
+        System.out.println("Enter the size of the third array: ");
+        int n3 = input.nextInt();
+        int ar3[] = new int[n3];
+        System.out.println("Enter the elements of the third array (in sorted order):");
+        for (int i = 0; i < n3; i++) {
+            ar3[i] = input.nextInt();
+        }
+
+        ArrayList<Integer> commonElements = findCommonElements(ar1, ar2, ar3);
+
+        System.out.println("Common elements in the three arrays:");
+        for (int element : commonElements) {
+            System.out.print(element + " ");
+        }
+    }
+}

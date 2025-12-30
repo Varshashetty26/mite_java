@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int input=sc.nextInt();
+	int a[][]=new int[input][input];
+	for(int i=0;i<input;i++){
+	    for(int j=0;j<input;j++){
+	        a[i][j]=sc.nextInt();
+	    }
+	}
+	int j=0,lsum=0,rsum=0,k=input-1;
+	for(int i=0;i<input;i++){
+	        lsum+=a[i][j];
+	        rsum+=a[i][k];
+	        j++;
+	        k--;
+	}
+	System.out.println("Left Diagonal sum= "+lsum);
+	System.out.println("Right Diagonal sum= "+rsum);
+	}
+}

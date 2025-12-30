@@ -1,0 +1,40 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int X = scanner.nextInt();
+        int nearestArmstrong = findNearestArmstrong(X);
+        System.out.println(nearestArmstrong);
+    }
+    static int findNearestArmstrong(int X) {
+        int smaller = X - 1;
+        int larger = X + 1;
+        while (true) {
+            if (isArmstrong(smaller)) 
+            return smaller;
+            if (isArmstrong(larger)) 
+            return larger;
+            smaller--;
+            larger++;
+        }
+    }
+    static boolean isArmstrong(int num) {
+        int original = num;
+        int digits = countDigits(num);
+        int sum = 0;
+        while (num > 0){
+            int digit = num % 10;
+            sum += Math.pow(digit, digits);
+            num /= 10;
+        }
+        return sum == original;
+    }
+    static int countDigits(int num) {
+        int count = 0;
+        while (num != 0) {
+            num /= 10;
+            count++;
+        }
+        return count;
+    }
+}

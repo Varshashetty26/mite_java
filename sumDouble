@@ -1,0 +1,15 @@
+import java.util.Scanner;   //import package for user input
+public class Main {
+    static int sumDouble(int number1,int number2) {   //function to return sum  
+        int x= (number1==number2)?(2*(number1+number2)):(number1+number2);// if numbers same-->return double of their sum else return their sum
+        return x;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number1 = sc.nextInt(); // first number
+         int number2 = sc.nextInt(); // 2nd number
+        int x = sumDouble(number1,number2);
+        System.out.println(x);
+    }
+}

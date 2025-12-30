@@ -1,0 +1,42 @@
+//Write a Java code to read n number of elements into the array and
+//then arrange all the prime numbers at the beginning of the array and 
+//all the non prime numbers at ending of the array
+
+import java.util.Scanner;//import Scanner 
+public class Main{
+	public static void main(String[] args) { //-----MAIN FUNCTION-------
+		Scanner sc=new Scanner(System.in);//scanner object
+		System.out.println("Enter the number of elements");
+		int n=sc.nextInt();//total number of elements
+		
+		int[] array=new int[n];//initialize the array
+		int[] final_array=new int[n];//initialize the final array
+		
+		System.out.println("Enter the elements of the array");
+		for(int i=0;i<n;i++){
+		    array[i]=sc.nextInt();//enter the elements
+		}
+		
+		int Prime_Index=0;//let prime index start from 0
+		int NonPrime_Index=n-1;//let non prime number index start from the last 
+		for (int i=0;i<n;i++){
+		    if(isPrime(array[i])){// if the number is prime
+		        final_array[Prime_Index++]=array[i];//add it to the beginning of the final_array and increment the index
+		    }
+		    else
+		        final_array[NonPrime_Index--]=array[i];// if it is not a Prime number then add it to the last position and decrement the index
+		}
+		for(int i=0;i<n;i++){
+		    System.out.print(final_array[i]+" ");//print the final resultant array
+		}
+		sc.close();
+	}
+	static boolean isPrime(int number){ //this method is to check whether the number is prime or not
+	    if (number<=1)//if it is less than or equal tp 1 -not prime
+	        return false;
+	    for(int i=2;i<=Math.sqrt(number);i++)
+	       if(number%i==0) // if it is divisible by i -not prime
+	            return false;
+	    return true;//if it doesn't satisfy the above two condition -> PRIME NUMBER
+	}
+}   

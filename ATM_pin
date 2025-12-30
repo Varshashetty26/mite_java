@@ -1,0 +1,74 @@
+import java.util.Scanner;       //package-user input
+class Main{
+    static int pin=1234;        //account pin value
+    static int balance=0;       //initial account balance
+    static Scanner input=new Scanner(System.in);//for global -user input
+    static void Deposit(int n){             //function for deposition of money
+        if(n%100==0){                       
+            balance=balance+n;              //add the amount to balance         
+            System.out.println("Rs."+n+" is deposited");
+        }
+        else
+            System.out.println("Amount cannot be deposited");
+    }
+    static void Withdraw(int n){        //function-withdrawal of money
+        if(n%100==0){                   
+            if(balance>=n){                 //check if there is balance in the account for the withdrawal
+                balance=balance-n;          //true->remove the withdrawal amount from the balance
+                System.out.println("Rs "+n+" is withdrawed");
+            }
+            else
+                System.out.println("Insufficient amount in the account");
+        }
+        else
+            System.out.println("cannot be withdrawn");
+    }
+    static void PinChange(int n){       //function-pin change
+        if(n==pin){                     // check-entered pin = current pin
+            System.out.println("Enter the new PIN");
+            int newpin=input.nextInt();         //if true->enter new pin
+            System.out.println("Enter the new pin to confirm");
+            int conpin=input.nextInt();         //confirm new pin once again
+            if(newpin== conpin){        //check if newpin=confirm pin
+                pin=newpin;             //if true->change the pin value to newpin
+                System.out.println("Pin changed successfully");//successfully pin changed
+            }
+            else
+                System.out.println("pin updation failed");  //else failed to change the pin
+        }
+        else
+            System.out.println("Enter the correct pin");//enter the current pin correctly
+    }
+    public static void main(String args[]){
+        System.out.println("Enter the account pin");
+        int p = input.nextInt();    //enter the account pin
+        if(p==pin){                 //if entered pin =actual pin -continue
+            while(true){    
+                System.out.println("PRESS\n1.Deposit\n2.Withdraw\n3.Balance Enquiry\n4.PIN change\n5.exit");
+                int ch=input.nextInt();
+                switch(ch){
+                    case 1:System.out.println("enter the amount to be deposited");
+                        int amount1=input.nextInt();
+                        Deposit(amount1);   //function call for deposition
+                        break;
+                    case 2:System.out.println("Enter the amount to be Withdrawed");
+                        int amount2=input.nextInt();
+                        Withdraw(amount2);//function call-withdrawal
+                        break;
+                    case 3:System.out.println("**************ACCOUNT BALANCE**************");
+                        System.out.println("Rs "+balance);//check balance
+                        break;
+                    case 4:System.out.println("Enter the current pin");
+                            int p1=input.nextInt();
+                            PinChange(p1);//function call-change pin
+                            break;
+                    case 5:System.exit(0);//exit 
+                    default:System.out.println("invalid input");
+                        
+                }
+            }
+        }
+        else
+            System.out.println("Invalid pin");//Entered Wrong pin 
+    }
+}

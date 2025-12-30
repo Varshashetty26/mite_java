@@ -1,0 +1,51 @@
+//QUESTION
+//Write Java code to read a positive integer and check if it is a prime number or not.
+//If it is not a prime number, then return 0 else 
+//check whether the sum of its digits is again a prime number or not. 
+//If it is a prime number then return 1 else return 0.
+
+import java.util.Scanner;//import Scanner 
+public class DigitSumAndPrime{
+	public static void main(String[] args) {//----------MAIN FUNCTION---------
+		Scanner sc=new Scanner(System.in);//create Scanner object 
+		System.out.println("Enter a positive number");
+		int number=sc.nextInt();// take the user input
+		if(number<=0){// check if the number is positive 
+		    System.out.println("should enter a positive number");
+		    return;// if number is not +ve then return
+		}
+		int result=isPrimeAndDigitSumIsPrime(number);//call the method
+		System.out.println(result);//print the result 0-if !prime else 1
+		sc.close();
+	}
+	static int isPrimeAndDigitSumIsPrime(int number){// method to check if number & sum of digits are prime 
+	   if (!isPrime(number))    // if number !prime
+	        return 0;   // Output:0
+	   int sumOfDigits=isSumOfDigits(number);//find sum of digits
+	   if(!isPrime(sumOfDigits)){//if sum -not prime
+	       return 0;// output 0
+	   }
+	   return 1;//else output 1
+	   
+	}
+	static boolean isPrime(int number){//check for prime number
+	     if(number<=1){//number less than/= 1 
+	        return false;//not prime
+	    }
+	    for(int i=2;i<=Math.sqrt(number);i++){
+	        if(number%i==0)//divisible by i
+	            return false;//not prime
+	    }
+	    return true;//else prime number
+	}
+	static int isSumOfDigits(int number){//find the sum of digits
+	    int sum=0;//initially sum=0
+	    while(number>0){
+	        sum+=number%10;// calculate the sum
+	        number/=10;
+	    }
+        return sum;//return sum
+	}
+    
+}
+

@@ -1,0 +1,20 @@
+import java.util.Scanner;//for user input
+class Main
+{
+    static String stringTimes(String word,int n){   //pass the word and no.of repetation
+        StringBuilder x=new StringBuilder();//to perform append operation on new string        
+        for(int i=1;i<=n;i++){
+            x.append(word); // append the words
+        }
+        return x.toString();
+    }
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter a word");
+		String word=sc.next();    //input-word
+		System.out.println("Enter a number");
+		int n=sc.nextInt();     //input-number
+		String line=stringTimes(word,n);
+		System.out.println(line);//print the n copies of String
+	}
+}

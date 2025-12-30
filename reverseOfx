@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        Scanner scanner = new Scanner(System.in);
+        int x = scanner.nextInt();
+        int revs = reverseOfx(x);
+        System.out.println(revs);
+    }
+
+    public static int reverseOfx(int x) 
+    {
+        int revs = 0;
+        while (x != 0) 
+        {
+            int d = x % 10;
+            revs = revs * 10 + d;
+            x /= 10;
+        }
+        return revs;
+    }
+}
